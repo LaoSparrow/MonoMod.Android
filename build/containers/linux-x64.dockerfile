@@ -2,7 +2,7 @@ FROM ubuntu:24.04
 
 # First, packages
 RUN apt-get update \
- && apt-get upgrate -y \
+ && apt-get upgrade -y \
  && apt-get install --no-install-recommends -y \
         apt-transport-https software-properties-common \
         git git-lfs curl wget bash \
