@@ -46,6 +46,6 @@ jobs:
           docker buildx build -t $imgName -f $($f.FullName) $($f.Directory.FullName)
           if (!$?) { exit 1; }
           # and push
-          docker push --compress $imgName
+          docker push $imgName
           if (!$?) { exit 1; }
         }

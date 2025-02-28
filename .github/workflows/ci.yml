@@ -146,7 +146,7 @@ jobs:
               exit 0;
             }
           }
-          Sleep -Seconds 30;
+          Start-Sleep -Seconds 30;
         }
 
   test:
