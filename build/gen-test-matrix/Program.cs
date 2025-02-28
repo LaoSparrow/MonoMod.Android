@@ -18,7 +18,7 @@ foreach (var dockerfile in Directory.EnumerateFiles("./build/containers", "*.doc
     containers.Add(name, $"{name}-{hash}");
 }
 
-var containerNameBase = $"ghcr.io/{owner}/monomod-tester:";
+var containerNameBase = $"ghcr.io/{owner.ToLowerInvariant()}/monomod-tester:";
 
 // build jobs
 await using var jobs = new JobsWriter(File.Open(githubOutputFile, FileMode.Append, FileAccess.Write), matrixOutNames);
