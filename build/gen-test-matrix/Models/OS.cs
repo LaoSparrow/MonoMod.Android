@@ -62,6 +62,22 @@ internal sealed record OS : Enableable
         },
         new()
         {
+            Name = "Linux musl",
+            Runner = "ubuntu-latest",
+            UseContainer = true,
+            HasSystemMono = true,
+            RidName = "linux-musl",
+            UnityDllName = "monobdwgc-2.0", // TODO: is this correct?
+            DllPrefix = "lib",
+            DllSuffix = ".so",
+
+            Arch = [
+                new() { RidName = "x64", UnityName = "linux64", IsRunnerArch = true },
+                new() { RidName = "arm64", UnityName = null, Enabled = false }, // Linux supports ARM64, but 1. we don't, and 2. Actions doesn't
+            ]
+        },
+        new()
+        {
             Name = "MacOS 13",
             Runner = "macos-13",
             HasSystemMono = true,

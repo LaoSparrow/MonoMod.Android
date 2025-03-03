@@ -119,8 +119,10 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token  }}
       run: |
+        $sha = '${{ github.event.pull_request.head.sha }}';
+        if (-not $sha) { $sha = '${{ github.sha }}'; }
         $workflow = gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" `
-                     "/repos/${{ github.repository }}/actions/runs?head_sha=${{ github.sha }}" `
+                     "/repos/${{ github.repository }}/actions/runs?head_sha=$sha" `
                      | ConvertFrom-Json `
                      | % { $_.workflow_runs } `
                      | Where { $_.path -eq ".github/workflows/containers.yml" }

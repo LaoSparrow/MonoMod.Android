@@ -67,7 +67,7 @@ internal sealed record Dotnet : Enableable
             Name = ".NET 5.0",
             Sdk = "5.0",
             TFM = "net5.0",
-            RIDs = ["win-x86", "win-x64", "linux-x64", "osx-x64"]
+            RIDs = ["win-x86", "win-x64", "linux-x64", "linux-musl-x64", "osx-x64"]
         },
         new()
         {
@@ -78,7 +78,7 @@ internal sealed record Dotnet : Enableable
             MonoPackageSource = Constants.NuGetSource.NugetOrg,
             MonoPackageVersion = "6.0.31",
 
-            RIDs = ["win-x86", "win-x64", "win-arm64", "linux-x64", "linux-arm", "linux-arm64", "osx-x64", "osx-arm64"]
+            RIDs = ["win-x86", "win-x64", "win-arm64", "linux-x64", "linux-arm", "linux-arm64", "linux-musl-x64", "linux-musl-arm", "linux-musl-arm64", "osx-x64", "osx-arm64"]
         },
         new()
         {
@@ -89,7 +89,7 @@ internal sealed record Dotnet : Enableable
             MonoPackageSource = Constants.NuGetSource.NugetOrg,
             MonoPackageVersion = "7.0.20",
 
-            RIDs = ["win-x86", "win-x64", "win-arm64", "linux-x64", "linux-arm", "linux-arm64", "osx-x64", "osx-arm64"]
+            RIDs = ["win-x86", "win-x64", "win-arm64", "linux-x64", "linux-arm", "linux-arm64", "linux-musl-x64", "linux-musl-arm", "linux-musl-arm64", "osx-x64", "osx-arm64"]
         },
         new()
         {
@@ -100,7 +100,7 @@ internal sealed record Dotnet : Enableable
             MonoPackageSource = Constants.NuGetSource.NugetOrg,
             MonoPackageVersion = "8.0.6",
 
-            RIDs = ["win-x86", "win-x64", "win-arm64", "linux-x64", "linux-arm", "linux-arm64", "osx-x64", "osx-arm64"]
+            RIDs = ["win-x86", "win-x64", "win-arm64", "linux-x64", "linux-arm", "linux-arm64", "linux-musl-x64", "linux-musl-arm", "linux-musl-arm64", "osx-x64", "osx-arm64"]
         },
         new()
         {
@@ -111,7 +111,7 @@ internal sealed record Dotnet : Enableable
             MonoPackageSource = Constants.NuGetSource.NugetOrg,
             MonoPackageVersion = "9.0.0",
 
-            RIDs = ["win-x86", "win-x64", "win-arm64", "linux-x64", "linux-arm", "linux-arm64", "osx-x64", "osx-arm64"]
+            RIDs = ["win-x86", "win-x64", "win-arm64", "linux-x64", "linux-arm", "linux-arm64", "linux-musl-x64", "linux-musl-arm", "linux-musl-arm64", "osx-x64", "osx-arm64"]
         }
     ];
 }
