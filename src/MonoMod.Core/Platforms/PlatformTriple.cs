@@ -659,7 +659,18 @@ namespace MonoMod.Core.Platforms
             var returnType = fromInfo.ReturnType;
             var hasReturnBuffer = Abi.Classify(returnType, true) is TypeClassification.ByReference;
             var hasThis = !fromInfo.IsStatic;
-            var requiresReturnBufferFixup = hasThis && toInfo.IsStatic && hasReturnBuffer;
+            
+            // Special handling for x86 platform
+            var isX86Platform = Environment.OSVersion.Platform == PlatformID.Win32NT && 
+                                IntPtr.Size == 4;
+            
+            // On x86, we need special handling for instance-to-static method transitions
+            // regardless of whether there's a return buffer
+            var requiresReturnBufferFixup = hasThis && toInfo.IsStatic && 
+                                           (hasReturnBuffer && !isX86Platform);
+            
+            // For x86, we'll handle the instance-to-static transition in a different way
+            var requiresX86InstanceFixup = isX86Platform && hasThis && toInfo.IsStatic;
 
             // Whenever we detour a call from a generic method, depending on the ABI, we may
             // receive a generic context as an argument, which a callee never needs, at least
@@ -689,7 +700,7 @@ namespace MonoMod.Core.Platforms
             var requiresGenericContextFixup = HasGenericContext(Abi) && Runtime.RequiresGenericContext(fromInfo);
 
             // Check if a fixup is needed for the current scenario.
-            if (!requiresReturnBufferFixup && !requiresGenericContextFixup)
+            if (!requiresReturnBufferFixup && !requiresGenericContextFixup && !requiresX86InstanceFixup)
             {
                 // `from` and `to` are considered compatible at this point.
                 // Thus, no ABI fixups are needed, return `to` as is.
@@ -704,59 +715,78 @@ namespace MonoMod.Core.Platforms
             var userArgumentsOffset = -1;
             var parameters = from.GetParameters();
             var argumentTypes = new List<Type>(parameters.Length + 3);
-            var argumentKinds = Abi.ArgumentOrder.Span;
-            for (var i = 0; i < argumentKinds.Length; i++)
+            
+            // For x86 platform, we need to handle the argument order differently
+            if (requiresX86InstanceFixup)
             {
-                switch (argumentKinds[i])
+                // On x86, the order is always: this, return buffer, user arguments
+                // This matches the x86 calling convention described in the docs
+                thisPos = 0;
+                argumentTypes.Add(from.GetThisParamType());
+                
+                returnBufferPos = 1;
+                argumentTypes.Add(returnBufferType);
+                
+                userArgumentsOffset = 2;
+                argumentTypes.AddRange(parameters.Select(p => p.ParameterType));
+            }
+            else
+            {
+                // For other platforms, use the ABI-defined argument order
+                var argumentKinds = Abi.ArgumentOrder.Span;
+                for (var i = 0; i < argumentKinds.Length; i++)
                 {
-                    case SpecialArgumentKind.ThisPointer when hasThis:
-                        thisPos = argumentTypes.Count;
-                        argumentTypes.Add(from.GetThisParamType());
-                        break;
+                    switch (argumentKinds[i])
+                    {
+                        case SpecialArgumentKind.ThisPointer when hasThis:
+                            thisPos = argumentTypes.Count;
+                            argumentTypes.Add(from.GetThisParamType());
+                            break;
 
-                    case SpecialArgumentKind.ReturnBuffer when hasReturnBuffer:
-                        returnBufferPos = argumentTypes.Count;
-                        argumentTypes.Add(returnBufferType);
-                        break;
+                        case SpecialArgumentKind.ReturnBuffer when hasReturnBuffer:
+                            returnBufferPos = argumentTypes.Count;
+                            argumentTypes.Add(returnBufferType);
+                            break;
 
-                    case SpecialArgumentKind.GenericContext when requiresGenericContextFixup:
-                        // Currently, we do the bare minimum: we acknowledge that
-                        // the generic context exists. That's all. After that,
-                        // we simply throw it out of the window and rely on
-                        // the generic context (if any) baked into in the callee.
-                        //
-                        // While this does work fine, it introduces funny little
-                        // holes in the type-safety premise of .NET:
-                        //
-                        // // This may return `false`!
-                        // bool Hook<T>(T it)
-                        //     => typeof(T).IsAssignableFrom(it.GetType());
-                        //
-                        // This behavior is caused by the fact that constructed
-                        // generics for reference types are Java'd into a single
-                        // definition at runtime (and rightfully so).
-                        // So, even if you try to detour a specific generic
-                        // implementation using something like
-                        // `to.MakeGenericMethod(typeof(string))`,
-                        // your hook will receive calls for all
-                        // reference type-based implementations out there.
-                        // However, since we do not patch the generic context
-                        // of the provided hook, it remains unchanged,
-                        // causing `typeof(T)` to defy users' expectations.
-                        //
-                        // So, TODO: patch the generic context of the detour target
-                        // and/or introduce a call filter based on the current context.
+                        case SpecialArgumentKind.GenericContext when requiresGenericContextFixup:
+                            // Currently, we do the bare minimum: we acknowledge that
+                            // the generic context exists. That's all. After that,
+                            // we simply throw it out of the window and rely on
+                            // the generic context (if any) baked into in the callee.
+                            //
+                            // While this does work fine, it introduces funny little
+                            // holes in the type-safety premise of .NET:
+                            //
+                            // // This may return `false`!
+                            // bool Hook<T>(T it)
+                            //     => typeof(T).IsAssignableFrom(it.GetType());
+                            //
+                            // This behavior is caused by the fact that constructed
+                            // generics for reference types are Java'd into a single
+                            // definition at runtime (and rightfully so).
+                            // So, even if you try to detour a specific generic
+                            // implementation using something like
+                            // `to.MakeGenericMethod(typeof(string))`,
+                            // your hook will receive calls for all
+                            // reference type-based implementations out there.
+                            // However, since we do not patch the generic context
+                            // of the provided hook, it remains unchanged,
+                            // causing `typeof(T)` to defy users' expectations.
+                            //
+                            // So, TODO: patch the generic context of the detour target
+                            // and/or introduce a call filter based on the current context.
 
-                        // The generic context is passed as a pointer to a struct that
-                        // contains all the needed (?) information.
-                        // We can treat it as a simple `IntPtr`.
-                        argumentTypes.Add(typeof(nint));
-                        break;
+                            // The generic context is passed as a pointer to a struct that
+                            // contains all the needed (?) information.
+                            // We can treat it as a simple `IntPtr`.
+                            argumentTypes.Add(typeof(nint));
+                            break;
 
-                    case SpecialArgumentKind.UserArguments:
-                        userArgumentsOffset = argumentTypes.Count;
-                        argumentTypes.AddRange(parameters.Select(static p => p.ParameterType));
-                        break;
+                        case SpecialArgumentKind.UserArguments:
+                            userArgumentsOffset = argumentTypes.Count;
+                            argumentTypes.AddRange(parameters.Select(static p => p.ParameterType));
+                            break;
+                    }
                 }
             }
 
