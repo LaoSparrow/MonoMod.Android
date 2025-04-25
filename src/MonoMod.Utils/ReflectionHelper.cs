@@ -224,33 +224,30 @@ namespace MonoMod.Utils
 
                     _ => (null, null)
                 };
-
-
             }
-            IEnumerable<T> PrePend<T>(IEnumerable<T> self, T to)
-            {
-                yield return to;
-                foreach (var i in self)
-                {
-                    yield return i;
-                }
-            }
-            
+
             var (asmName, moduleName) = GetScope(mref);
             string ToCacheKeyPart(string? asmName, string? moduleName)
                 => $" | {asmName ?? "NOASSEMBLY"}, {moduleName ?? "NOMODULE"}";
-            IEnumerable<MemberReference>? GetGenericParameters(MemberReference? mref)
-                => (mref switch
-                {
-                    GenericInstanceMethod methodRef => methodRef.GenericArguments,
-                    GenericInstanceType typeRef => typeRef.GenericArguments,
-                    //TODO: i don't know if there're another generic thing
-                    _ => null,
-                })?.SelectMany(x => PrePend(GetGenericParameters(x) ?? [], x));
-            var gen = GetGenericParameters(mref);
-            if (gen is { })
+            IEnumerable<MemberReference> GetGenericArgumentsRecursive(MemberReference? mref)
             {
-                var keyGroup = gen.Select(x =>
+                yield return mref!;
+                if (mref is IGenericInstance methodRef)
+                {
+                    foreach (var i in methodRef.GenericArguments)
+                    {
+                        foreach (var j in GetGenericArgumentsRecursive(i))
+                        {
+                            yield return j;
+                        }
+                    }
+                }
+            }
+
+            if (mref is IGenericInstance)
+            {
+                var gen = GetGenericArgumentsRecursive(mref);
+                var keyGroup = gen!.Select(x =>
                 {
                     var (asmName, moduleName) = GetScope(x);
                     return ToCacheKeyPart(asmName, moduleName);
@@ -259,7 +256,7 @@ namespace MonoMod.Utils
             }
             else
             {
-                cacheKey = string.Concat(cacheKey, ToCacheKeyPart(asmName, moduleName));
+                cacheKey += ToCacheKeyPart(asmName, moduleName);
             }
             lock (ResolveReflectionCache)
             {
