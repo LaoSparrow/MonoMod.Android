@@ -69,7 +69,11 @@ namespace MonoMod.Core.Platforms.Runtimes
             // all others are passed on stack, or in a return buffer
             if (isReturn)
             {
-                return TypeClassification.ByReference;
+                var typeSize = type.GetManagedSize();
+                if (typeSize is 1 or 2 or 4)
+                    return TypeClassification.InRegister;
+                else
+                    return TypeClassification.ByReference;
             }
             else
             {
