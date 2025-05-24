@@ -17,6 +17,11 @@ on:
         - 'anthropic/claude-sonnet-4'
         - 'mistralai/mistral-medium-3'
         - 'openai/o4-mini' # o4-mini actually works better than o4-mini-high
+        
+env:
+  DOTNET_TELEMETRY_OPTOUT: true
+  DOTNET_NOLOGO: true
+  NUGET_PACKAGES: ${{github.workspace}}/artifacts/pkg
 
 jobs:
   process-issue:
