@@ -2,6 +2,7 @@ extern alias New;
 using New::MonoMod.RuntimeDetour;
 using System;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -17,6 +18,7 @@ namespace MonoMod.UnitTest.Github
         {
             public bool IsDrawn { get; private set; }
             
+            [MethodImpl(MethodImplOptions.NoInlining)]
             public void DrawMenu(GameTime gameTime)
             {
                 IsDrawn = true;
@@ -31,24 +33,28 @@ namespace MonoMod.UnitTest.Github
         [Fact]
         public void ConcurrentILHooksDoNotCauseRaceCondition()
         {
-            var target = new DrawTarget();
-            
-            // Simulate multiple hooks being added concurrently
-            Parallel.For(0, 10, i =>
+            for (var i = 0; i < 10; i++)
             {
-                using (var hook = new Hook(typeof(DrawTarget).GetMethod(nameof(DrawTarget.DrawMenu)), (Action<DrawTarget, GameTime>)((self, gameTime) =>
+                var target = new DrawTarget();
+                
+                // Simulate multiple hooks being added concurrently
+                Parallel.For(0, 10, i =>
                 {
-                    // Original method call
-                    self.DrawMenu(gameTime);
-                })))
-                {
-                    // Call the hooked method
-                    target.DrawMenu(new GameTime());
-                }
-            });
+                    using (var hook = new Hook(typeof(DrawTarget).GetMethod(nameof(DrawTarget.DrawMenu)),
+                        (Action<Action<DrawTarget, GameTime>, DrawTarget, GameTime>)((orig, self, gameTime) =>
+                        {
+                            // Original method call
+                            orig(self, gameTime);
+                        })))
+                    {
+                        // Call the hooked method
+                        target.DrawMenu(new GameTime());
+                    }
+                });
 
-            // Verify that the method was drawn
-            Assert.True(target.IsDrawn, "Method should have been drawn without raising an exception");
+                // Verify that the method was drawn
+                Assert.True(target.IsDrawn, "Method should have been drawn without raising an exception");
+            }
         }
     }
 }
