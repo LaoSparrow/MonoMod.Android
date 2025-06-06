@@ -29,13 +29,9 @@
     <Project Path="tools/tools.csproj" />
   </Folder>
   <Project Path="src/Common/Common.csproj" />
-  <Project Path="src/MonoMod.Backports.Tasks/MonoMod.Backports.Tasks.csproj" />
-  <Project Path="src/MonoMod.Backports/MonoMod.Backports.csproj" />
   <Project Path="src/MonoMod.Core/MonoMod.Core.csproj" />
   <Project Path="src/MonoMod.DebugIL/MonoMod.DebugIL.csproj" />
   <Project Path="src/MonoMod.FrameworkTests/MonoMod.FrameworkTests.csproj" />
-  <Project Path="src/MonoMod.ILHelpers.Patcher/MonoMod.ILHelpers.Patcher.csproj" />
-  <Project Path="src/MonoMod.ILHelpers/MonoMod.ILHelpers.ilproj" Type="C#" />
   <Project Path="src/MonoMod.Patcher/MonoMod.Patcher.csproj" />
   <Project Path="src/MonoMod.RuntimeDetour.HookGen/MonoMod.RuntimeDetour.HookGen.csproj" />
   <Project Path="src/MonoMod.RuntimeDetour/MonoMod.RuntimeDetour.csproj" />
