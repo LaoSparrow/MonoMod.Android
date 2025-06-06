@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
+using static MonoMod.Utils.Interop.Windows;
 using CallSite = Mono.Cecil.CallSite;
 
 namespace MonoMod.Utils
@@ -462,6 +463,12 @@ namespace MonoMod.Utils
                         {
                             AddElementType(type);
                         }
+                        // https://github.com/dotnet/runtime/blob/4e0dc086de5952b87e0fdac43690edb5acc4bd6b/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/SignatureHelper.cs#L449
+                        // btw module is always null
+                        else if (true || tokenCreator/*signatureHelper.module*/ == null)
+                        {
+                            InternalAddRuntimeType(clsArgument);
+                        }
                         else if (clsArgument.IsValueType)
                         {
                             InternalAddTypeToken(tokenCreator.GetTokenForType(clsArgument), 0x11 /* CorElementType.ValueType */);
@@ -471,6 +478,26 @@ namespace MonoMod.Utils
                             InternalAddTypeToken(tokenCreator.GetTokenForType(clsArgument), 0x12 /* CorElementType.Class */);
                         }
                     }
+                }
+                unsafe void InternalAddRuntimeType(Type type)
+                {
+                    // Add a runtime type into the signature.
+
+                    AddElementType(0x21/*CorElementType.ELEMENT_TYPE_INTERNAL*/);
+
+                    IntPtr handle = type.TypeHandle.Value;
+
+                    // Internal types must have their pointer written into the signature directly (we don't
+                    // want to convert to little-endian format on big-endian machines because the value is
+                    // going to be extracted and used directly as a pointer (and only within this process)).
+                    if (currSig + sizeof(void*) > signature!.Length)
+                    {
+                        signature = ExpandArray(signature);
+                    }
+
+                    byte* phandle = (byte*)&handle;
+                    for (int i = 0; i < sizeof(void*); i++)
+                        signature[currSig++] = phandle[i];
                 }
             }
         }
