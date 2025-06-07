@@ -55,6 +55,7 @@ namespace MonoMod.UnitTest
 
             Type type = typeof(T);
             var method = ((Helper<T>)Ret).Method;
+            using var pin = PlatformTriple.Current.PinMethodIfNeeded(method);
             var i = method.MethodHandle.GetFunctionPointer();
             using DynamicMethodDefinition dmd = new("a", null, [typeof(nint), type]);
             var il = dmd.GetILProcessor();
@@ -86,6 +87,7 @@ namespace MonoMod.UnitTest
 
             Type type = typeof(T);
             var method = ((Delegate)Light).Method;
+            using var pin = PlatformTriple.Current.PinMethodIfNeeded(method);
             var i = PlatformTriple.Current.GetNativeMethodBody(method);
             using DynamicMethodDefinition dmd = new("a", null, [typeof(nint), type]);
             var il = dmd.GetILProcessor();
