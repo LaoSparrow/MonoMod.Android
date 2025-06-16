@@ -208,7 +208,7 @@ namespace MonoMod.Core.Platforms.Architectures
                     ),
                     // FixupPrecodeCode ThePreStub entry point
                     new BytePattern(
-                        new AddressMeaning(AddressKind.PrecodeFixupThunkRel64 | AddressKind.Constant | AddressKind.Indirect, 0, 0x4000), mustMatchAtStart: true,
+                        new AddressMeaning(AddressKind.PrecodeFixupThunkRel64 | AddressKind.Constant | AddressKind.Indirect, 0, 0x4008), mustMatchAtStart: true,
                         new byte[]
                         {
                             0xff, 0xff, 0xff, 0xff,
