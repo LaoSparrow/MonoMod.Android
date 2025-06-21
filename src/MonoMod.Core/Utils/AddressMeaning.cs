@@ -130,7 +130,7 @@ namespace MonoMod.Core.Utils
 
         // Force the use of DebugFormatter, because we might be patching DefaultInterpolatedStringHandler
         /// <inheritdoc/>
-        public override string ToString() => DebugFormatter.Format($"AddressMeaning({Kind.FastToString()}, offset: {RelativeToOffset}, shift: {ConstantValue})");
+        public override string ToString() => DebugFormatter.Format($"AddressMeaning({Kind.FastToString()}, offset: {RelativeToOffset}, constant: {ConstantValue})");
 
         /// <inheritdoc/>
         public override int GetHashCode()
