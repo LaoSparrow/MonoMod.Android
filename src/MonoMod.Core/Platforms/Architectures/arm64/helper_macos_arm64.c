@@ -23,4 +23,3 @@ void mmch_precompile_icorejitinfo70_allocmem(void (*p)(void *, void *))
 {
     p(NULL, NULL);
 }
-

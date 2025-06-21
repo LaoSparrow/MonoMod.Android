@@ -4,7 +4,7 @@
 .global _main
 
 _main:
-    ldr x8, _target
-    br x8
+    ldr x9, _target
+    br x9
 
 _target: .quad 0x0
