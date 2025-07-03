@@ -51,7 +51,7 @@ sudo sysctl kern.coredump=1;
 sudo sysctl "kern.corefile=$corePattern";
 ulimit -c unlimited;
 ulimit -t 600; # hard-limit the program to take no more than 10 minutes (nothing we will use this for needs anywhere near that much; any more is a problem)
-xargs lldb -o "process handle SIGXCPU --stop true --notify true" -o "run" -k "process save-core -s full -- $(Join-Path $dumpsPath 'dump_timeout.core')" "$Exe";
+xargs lldb -o "process handle SIGXCPU --stop true --notify true" -o "run" -k "process save-core -s full -- $(Join-Path $dumpsPath 'dump_timeout.core')" -k "kill" -o "quit" "$Exe";
 exit `$?;
 "@;
     exit $LastExitCode;
