@@ -17,6 +17,13 @@ env:
   NUGET_PACKAGES: ${{github.workspace}}/artifacts/pkg
   XunitVersion: "2.4.2"
 
+  DUMPS_PATH: ${{github.workspace}}/artifacts/dumps/
+  DOTNET_DbgEnableMiniDump: 1
+  DOTNET_DbgMiniDumpName: "${{github.workspace}}/artifacts/dumps/dump_%e_%p.dmp"
+  DOTNET_DbgMiniDumpType: 4
+  DOTNET_CreateDumpDiagnostics: 1
+  DOTNET_EnableDumpOnSigTerm: 1
+
 jobs:
   test:  
     name: Test
@@ -128,3 +135,12 @@ jobs:
           TestResults/*.trx
           *.xml
           diaglog.*
+
+    - name: Upload process dumps
+      uses: actions/upload-artifact@v4
+      if: ${{ always() }}
+      with:
+        name: test-dumps ${{ fromJSON(inputs.matrix).title }}
+        retention-days: 1
+        path: |
+          ${{ env.DUMPS_PATH }}*
