@@ -18,6 +18,7 @@ env:
   XunitVersion: "2.4.2"
 
   DUMPS_PATH: ${{github.workspace}}/artifacts/dumps/
+  WORKSPACE: ${{github.workspace}}
   DOTNET_DbgEnableMiniDump: 1
   DOTNET_DbgMiniDumpName: "${{github.workspace}}/artifacts/dumps/dump_%e_%p.dmp"
   DOTNET_DbgMiniDumpType: 4
