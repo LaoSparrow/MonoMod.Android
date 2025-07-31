@@ -33,5 +33,17 @@
     <ProjectReference Include="$(MMExternalPath)iced.csproj" PrivateAssets="all" />
     <PackageReference Include="Mono.Cecil" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Platforms\Systems\AndroidSystem.cs">
+      <CodeLanguage>cs</CodeLanguage>
+      <DefaultPackFolder>content</DefaultPackFolder>
+      <BuildAction>Compile</BuildAction>
+    </Compile>
+    <Compile Update="Interop\AndroidNative.cs">
+      <CodeLanguage>cs</CodeLanguage>
+      <DefaultPackFolder>content</DefaultPackFolder>
+      <BuildAction>Compile</BuildAction>
+    </Compile>
+  </ItemGroup>
 
 </Project>
