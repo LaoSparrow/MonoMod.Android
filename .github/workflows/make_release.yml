@@ -52,7 +52,7 @@ jobs:
 
     - name: Compute Version
       id: computever
-      run: echo "ver=$(Get-Date -Format y.M.d).${{ github.run_number }}.${{ github.run_attempt }}-RELEASE${{ inputs.prerelease && format('-{0}', inputs.prerelease-str) }}" >> $env:GITHUB_OUTPUT
+      run: echo "ver=$(Get-Date -Format y.M.d).${{ github.run_number }}.${{ github.run_attempt }}-RELEASE${{ inputs.prerelease && format('-{0}', inputs.prerelease-str) || '' }}" >> $env:GITHUB_OUTPUT
 
     - name: Checkout
       uses: actions/checkout@v4
@@ -146,7 +146,7 @@ jobs:
       
   upload-github:
     needs: [setup, build-testassets]
-    if: 'always() && !inputs.dryrun' # always try to push GitHub packages, even if tests fail
+    if: '!inputs.dryrun'
     name: Upload Packages (GitHub)
     uses: ./.github/workflows/upload-packages.yml
     with:
