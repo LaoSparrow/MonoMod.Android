@@ -1,18 +1,14 @@
-﻿using Microsoft.Win32.SafeHandles;
-using MonoMod.Core.Interop;
+﻿using MonoMod.Core.Interop;
 using MonoMod.Core.Platforms.Memory;
 using MonoMod.Core.Utils;
 using MonoMod.Utils;
 using System;
-using System.Buffers;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace MonoMod.Core.Platforms.Systems
 {
