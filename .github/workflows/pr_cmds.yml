@@ -98,11 +98,11 @@ jobs:
       run: |
         if ('${{ steps.cmdversion.outputs.continue }}' -eq 'true')
         {
-          ./.github/workflows/pr_cmds.ps1 -CmdVersion ${{ steps.cmdversion.outputs.params }}
+          ./.github/workflows/pr_cmds.ps1 -Cmd${{ steps.cmdversion.outputs.params }}
         }
         elseif ('${{ steps.cmdlockfile.outputs.continue }}' -eq 'true')
         {
-          ./.github/workflows/pr_cmds.ps1 -CmdLockfile ${{ steps.cmdlockfile.outputs.params }}
+          ./.github/workflows/pr_cmds.ps1 -Cmd${{ steps.cmdlockfile.outputs.params }}
         }
         
     - name: Commit results
