@@ -46,7 +46,7 @@ ulimit -t 600; # hard-limit the program to take no more than 10 minutes (nothing
 set +e;
 # on MacOS, SIGXCPU doesn't coredump by default. Thus, we use LLDB unattended to perform the dump 
 # because we run our Linux stuff in containers, we can't set the core_pattern. Thus, we'll do the same thing we *must* do on MacOS and use LLDB to generate dumps when crashing
-xargs lldb -x -b -O "command alias sdmp process save-core -p minidump -s full -- '$(Join-Path $dumpsPath 'dump_crash.core')'"\
+xargs lldb -x -b -O "command alias sdmp process save-core -p minidump -s full '$(Join-Path $dumpsPath 'dump_crash.core')'"\
     -s "$(Join-Path $lldbHelpers 'setup.lldb')" \
     -K "$(Join-Path $lldbHelpers 'crash.lldb')" \
     -s "$(Join-Path $lldbHelpers 'teardown.lldb')" -- "$Exe";
