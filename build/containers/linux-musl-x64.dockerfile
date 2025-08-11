@@ -8,7 +8,7 @@ RUN apk update \
     -X https://dl-cdn.alpinelinux.org/alpine/edge/community \
     -X https://dl-cdn.alpinelinux.org/alpine/edge/testing \
         git git-lfs curl wget bash nodejs lttng-ust openssh-client tar \
-        mono dotnet9-runtime sudo doas lldb py3-lldb \
+        mono dotnet9-runtime sudo doas lldb py3-lldb coreutils \
 # Dependencies for older runtimes
  && apk add --no-cache -X https://dl-cdn.alpinelinux.org/alpine/v3.18/community \
         libssl1.1 \

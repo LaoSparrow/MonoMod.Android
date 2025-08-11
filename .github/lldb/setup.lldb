@@ -1,6 +1,9 @@
 # need to make sure we don't disable ASLR for Docker, but we also want to always keep it anyway
 settings set target.disable-aslr false
 
+# follow the fork, because we're using coreutils' timeout, which runs the actual program as a fork
+settings set target.process.follow-fork-mode child
+
 # set up signal handling
 process handle -s false -p true -n false SIGINT SIGSTOP SIGSEGV SIGHUP SIGQUIT SIGTRAP SIGFPE SIGKILL SIGTERM SIGPIPE
 process handle -s true -p true -n true SIGXCPU SIGABRT SIGILL SIGBUS
