@@ -6,6 +6,7 @@ using System.Diagnostics;
 using MonoMod.Utils;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+using MonoMod.Core.Platforms;
 
 #if NETCOREAPP1_0_OR_GREATER
 //using Xunit.Abstractions;
@@ -95,12 +96,19 @@ unsafe
         Console.WriteLine(msvcrand());
     }
 
-    using (new NativeHook((IntPtr)msvcrand, (RandHook)MixRand))
+    if (PlatformTriple.Current.SupportedFeatures.Architecture.Has(ArchitectureFeature.CreateAltEntryPoint))
     {
-        for (var i = 0; i < 10; i++)
+        using (new NativeHook((IntPtr)msvcrand, (RandHook)MixRand))
         {
-            Console.WriteLine(msvcrand());
+            for (var i = 0; i < 10; i++)
+            {
+                Console.WriteLine(msvcrand());
+            }
         }
+    }
+    else
+    {
+        Console.WriteLine("Not trying MixRand; CreateAltEntryPoint is not supported on this arch");
     }
 
     GC.KeepAlive(get1del);
