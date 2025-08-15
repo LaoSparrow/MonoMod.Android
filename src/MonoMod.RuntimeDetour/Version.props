@@ -1,0 +1,8 @@
+<Project>
+
+  <PropertyGroup>
+    <VersionPrefix>25.3.0</VersionPrefix>
+    <PackageValidationBaselineVersion>25.2.3</PackageValidationBaselineVersion>
+  </PropertyGroup>
+  
+</Project>

@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using MonoMod.Utils;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 
 #if NETCOREAPP1_0_OR_GREATER
 //using Xunit.Abstractions;
@@ -21,15 +22,20 @@ if (Debugger.IsAttached)
     Debugger.Break();
 }
 
-var str = "text".AsMemory();
+Console.WriteLine(HookSrc());
 
-using (new Hook(typeof(ReadOnlyMemory<char>).GetMethod("ToString")!, (ReadOnlyMemoryToString orig, ref ReadOnlyMemory<char> mem) =>
+using (new Hook(new Func<int>(HookSrc).Method, (Func<int> orig) =>
 {
-    return orig(ref mem) + " lol";
+    return orig() + 1;
 }))
 {
-    var str2 = str.ToString();
-    Console.WriteLine(str2);
+    Console.WriteLine(HookSrc());
+}
+
+[MethodImpl(MethodImplOptions.NoInlining)]
+static int HookSrc()
+{
+    return 1;
 }
 
 #if false
@@ -89,12 +95,19 @@ unsafe
         Console.WriteLine(msvcrand());
     }
 
-    using (new NativeHook((IntPtr)msvcrand, (RandHook)MixRand))
+    if (NativeHook.CanCallOriginal)
     {
-        for (var i = 0; i < 10; i++)
+        using (new NativeHook((IntPtr)msvcrand, (RandHook)MixRand))
         {
-            Console.WriteLine(msvcrand());
+            for (var i = 0; i < 10; i++)
+            {
+                Console.WriteLine(msvcrand());
+            }
         }
+    }
+    else
+    {
+        Console.WriteLine("Not trying MixRand; CreateAltEntryPoint is not supported on this arch");
     }
 
     GC.KeepAlive(get1del);

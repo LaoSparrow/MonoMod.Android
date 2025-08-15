@@ -86,7 +86,7 @@ jobs:
     with:
       os: ubuntu-latest
       osname: Linux
-      version: ${{ needs.setup.outputs.ver }}
+      version: daily.${{ needs.setup.outputs.ver }}
       upload-packages: true
       upload-tests: true
 
@@ -106,7 +106,7 @@ jobs:
     with:
       os: ${{ matrix.os }}
       osname: ${{ matrix.name }}
-      version: ${{ needs.setup.outputs.ver }}
+      version: daily.${{ needs.setup.outputs.ver }}
       upload-packages: false
       upload-tests: false
 
@@ -163,3 +163,11 @@ jobs:
     name: Test ${{ matrix.title }}
     with:
       matrix: ${{ toJSON(matrix) }}
+      
+  upload:
+    needs: [setup, build-testassets]
+    if: github.ref_name == 'reorganize'
+    name: Upload Packages
+    uses: ./.github/workflows/upload-packages.yml
+    with:
+      workflow-id: ${{ needs.setup.outputs.should_skip == 'true' && fromJSON(needs.setup.outputs.skipped_by).workflowId || github.run_id }}

@@ -2,6 +2,12 @@
   "version": 1,
   "dependencies": {
     ".NETCoreApp,Version=v2.1": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -80,9 +86,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -338,7 +344,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
@@ -349,7 +355,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
@@ -360,9 +366,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
@@ -372,11 +378,11 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
           "System.Reflection.Emit.Lightweight": "[4.7.0, )"
@@ -385,7 +391,7 @@
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
@@ -394,6 +400,12 @@
       }
     },
     ".NETCoreApp,Version=v3.0": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -460,9 +472,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -1482,7 +1494,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
@@ -1493,7 +1505,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
@@ -1504,9 +1516,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
@@ -1516,11 +1528,11 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
           "System.Reflection.Emit.Lightweight": "[4.7.0, )"
@@ -1529,7 +1541,7 @@
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
@@ -1538,6 +1550,12 @@
       }
     },
     ".NETCoreApp,Version=v3.1": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -1604,9 +1622,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -2626,7 +2644,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
@@ -2637,7 +2655,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
@@ -2648,9 +2666,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
@@ -2660,11 +2678,11 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
           "System.Reflection.Emit.Lightweight": "[4.7.0, )"
@@ -2673,7 +2691,7 @@
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "System.Reflection.Emit.ILGeneration": "[4.7.0, )",
@@ -2682,6 +2700,12 @@
       }
     },
     ".NETFramework,Version=v4.6.2": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -2752,9 +2776,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -2909,7 +2933,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -2918,7 +2942,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -2927,9 +2951,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
@@ -2937,24 +2961,30 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
       },
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )"
         }
       }
     },
     ".NETCoreApp,Version=v5.0": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -3021,9 +3051,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -4054,7 +4084,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -4063,7 +4093,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -4072,9 +4102,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
@@ -4082,24 +4112,30 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
       },
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )"
         }
       }
     },
     "net6.0": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -4166,9 +4202,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -5199,7 +5235,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -5208,7 +5244,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -5217,9 +5253,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
@@ -5227,24 +5263,30 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
       },
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )"
         }
       }
     },
     "net7.0": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -5311,9 +5353,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -6344,7 +6386,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -6353,7 +6395,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -6362,9 +6404,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
@@ -6372,24 +6414,30 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
       },
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )"
         }
       }
     },
     "net8.0": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -6456,9 +6504,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -7489,7 +7537,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -7498,7 +7546,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -7507,9 +7555,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
@@ -7517,24 +7565,30 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
       },
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )"
         }
       }
     },
     "net9.0": {
+      "DotNet.ReproducibleBuilds": {
+        "type": "Direct",
+        "requested": "[1.2.25, )",
+        "resolved": "1.2.25",
+        "contentHash": "xCXiw7BCxHJ8pF6wPepRUddlh2dlQlbr81gXA72hdk4FLHkKXas7EH/n+fk5UCA/YfMqG1Z6XaPiUjDbUNBUzg=="
+      },
       "IsExternalInit": {
         "type": "Direct",
         "requested": "[1.0.3, )",
@@ -7601,9 +7655,9 @@
       },
       "Mono.Cecil": {
         "type": "Direct",
-        "requested": "[0.11.5, )",
-        "resolved": "0.11.5",
-        "contentHash": "fxfX+0JGTZ8YQeu1MYjbBiK2CYTSzDyEeIixt+yqKKTn7FW8rv7JMY70qevup4ZJfD7Kk/VG/jDzQQTpfch87g=="
+        "requested": "[0.11.6, )",
+        "resolved": "0.11.6",
+        "contentHash": "f33RkDtZO8VlGXCtmQIviOtxgnUdym9xx/b1p9h91CRGOsJFxCFOFK1FDbVt1OCf1aWwYejUFa2MOQyFWTFjbA=="
       },
       "MonoMod.Backports": {
         "type": "Direct",
@@ -8634,7 +8688,7 @@
       "monomod.core": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -8643,7 +8697,7 @@
       "monomod.patcher": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
@@ -8652,9 +8706,9 @@
       "monomod.runtimedetour": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.2.3-alpha.dev, )",
+          "MonoMod.Core": "[1.3.0-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
@@ -8662,18 +8716,18 @@
       "monomod.runtimedetour.hookgen": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Patcher": "[25.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.2.3-alpha.dev, )",
+          "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
+          "MonoMod.RuntimeDetour": "[25.3.0-alpha.dev, )",
           "MonoMod.Utils": "[25.0.8-alpha.dev, )"
         }
       },
       "monomod.utils": {
         "type": "Project",
         "dependencies": {
-          "Mono.Cecil": "[0.11.5, )",
+          "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )"
         }
