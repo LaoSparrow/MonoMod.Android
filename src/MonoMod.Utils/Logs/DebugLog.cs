@@ -344,7 +344,7 @@ namespace MonoMod.Logs
                 replayQueue = new();
             }
 
-            var diskLogFile = "/data/user/0/com.companyname.AndroidGame1/files/mmd.log";
+            var diskLogFile = Switches.TryGetSwitchValue(Switches.LogToFile, out switchValue) ? switchValue as string : null;;
             string[]? diskSourceFilter = null;
             if (Switches.TryGetSwitchValue(Switches.LogToFileFilter, out switchValue))
             {
