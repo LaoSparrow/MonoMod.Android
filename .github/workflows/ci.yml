@@ -35,7 +35,7 @@ jobs:
     steps:
     - name: Check if this run should skip
       id: skip_check
-      uses: t@v5
+      uses: fkirc/skip-duplicate-actions@v5
       with:
         cancel_others: true
         concurrent_skipping: same_content_newer
