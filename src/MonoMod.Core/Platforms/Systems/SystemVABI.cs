@@ -18,7 +18,7 @@ namespace MonoMod.Core.Platforms.Systems
                 if (totalSize > 32)
                     return isReturn ? TypeClassification.ByReference : TypeClassification.OnStack;
 
-                var isMemory = AnyFieldsNotFloat(type);
+                var isMemory = true;// AnyFieldsNotFloat(type);
                 if (isMemory)
                 {
                     return isReturn ? TypeClassification.ByReference : TypeClassification.OnStack;
