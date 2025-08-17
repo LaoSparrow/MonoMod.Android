@@ -145,7 +145,7 @@ jobs:
     name: Upload Packages (GitHub)
     uses: ./.github/workflows/upload-packages.yml
     with:
-      workflow-id: ${{ github.run_id }}
+      run-id: ${{ github.run_id }}
 
   upload-nuget:
     needs: [setup, build-testassets, test]
@@ -153,7 +153,7 @@ jobs:
     name: Upload Packages (NuGet)
     uses: ./.github/workflows/upload-packages.yml
     with:
-      workflow-id: ${{ github.run_id }}
+      run-id: ${{ github.run_id }}
       nuget-url: nuget.org
     secrets:
       nuget-key: ${{ secrets.NUGET_PUSH_KEY }}
