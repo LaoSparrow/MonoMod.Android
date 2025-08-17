@@ -29,12 +29,13 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       should_skip: ${{ steps.skip_check.outputs.should_skip }}
+      skipped_by: ${{ steps.skip_check.outputs.skipped_by }}
       ver: ${{ steps.computever.outputs.ver }}
       matrix: ${{ steps.compute-matrix.outputs.matrix }}
     steps:
     - name: Check if this run should skip
       id: skip_check
-      uses: fkirc/skip-duplicate-actions@v5
+      uses: t@v5
       with:
         cancel_others: true
         concurrent_skipping: same_content_newer
@@ -166,7 +167,7 @@ jobs:
       
   upload:
     needs: [setup, build-testassets]
-    if: github.ref_name == 'reorganize'
+    if: ${{ github.ref_name == 'reorganize' && (success() || needs.setup.result == 'success') }}
     name: Upload Packages
     uses: ./.github/workflows/upload-packages.yml
     with:
