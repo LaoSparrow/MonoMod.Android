@@ -83,6 +83,59 @@ namespace MonoMod.Core.Platforms.Runtimes
             // valuetype handling is implemented by add_valuetype 
             return ClassifyValueType(type, true);
         }
+        
+         private static TypeClassification LinuxArm64Classifier(Type type, bool isReturn)
+        {
+            if (type.IsEnum)
+                type = type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).First().FieldType;
+
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Empty:
+                    return TypeClassification.InRegister;
+                case TypeCode.Object:
+                case TypeCode.DBNull:
+                case TypeCode.String:
+                    // reference types
+                    return TypeClassification.InRegister;
+
+                case TypeCode.Boolean:
+                case TypeCode.Char:
+                case TypeCode.SByte:
+                case TypeCode.Byte:
+                case TypeCode.Int16:
+                case TypeCode.UInt16:
+                case TypeCode.Int32:
+                case TypeCode.UInt32:
+                case TypeCode.Int64:
+                case TypeCode.UInt64:
+                    // integer types
+                    return TypeClassification.InRegister;
+
+                case TypeCode.Single:
+                case TypeCode.Double:
+                    // floating point types (via SSE)
+                    return TypeClassification.InRegister;
+            }
+
+            // pointer types
+            if (type.IsPointer)
+                return TypeClassification.InRegister;
+            if (type.IsByRef)
+                return TypeClassification.InRegister;
+
+            // native integer types
+            if (type == typeof(IntPtr) || type == typeof(UIntPtr))
+                return TypeClassification.InRegister;
+
+            if (type == typeof(void))
+                return TypeClassification.InRegister;
+
+            Helpers.Assert(type.IsValueType);
+
+            // valuetype handling is implemented by add_valuetype 
+            return ClassifyValueType(type, true);
+        }
 
         private static TypeClassification ClassifyValueType(Type type, bool isReturn)
         {
@@ -167,6 +220,14 @@ namespace MonoMod.Core.Platforms.Runtimes
             // see https://github.com/dotnet/runtime/blob/v6.0.5/src/mono/mono/mini/mini-amd64.c line 472, 847, 1735
             if (system.DefaultAbi is { } abi)
             {
+                if (PlatformDetection.OS.GetKernel() is OSKind.Linux or OSKind.Android && PlatformDetection.Architecture is ArchitectureKind.Arm64)
+                {
+                    // Linux on AMD64 doesn't actually use SystemV for managed calls.
+                    abi = abi with
+                    {
+                        Classifier = LinuxArm64Classifier,
+                    };
+                }
                 if (PlatformDetection.OS.GetKernel() is OSKind.Linux or OSKind.OSX && PlatformDetection.Architecture is ArchitectureKind.x86_64)
                 {
                     // Linux on AMD64 doesn't actually use SystemV for managed calls.
