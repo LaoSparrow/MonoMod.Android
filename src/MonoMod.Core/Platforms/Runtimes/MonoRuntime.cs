@@ -167,7 +167,7 @@ namespace MonoMod.Core.Platforms.Runtimes
             // see https://github.com/dotnet/runtime/blob/v6.0.5/src/mono/mono/mini/mini-amd64.c line 472, 847, 1735
             if (system.DefaultAbi is { } abi)
             {
-                if (PlatformDetection.OS.GetKernel() is OSKind.Linux or OSKind.OSX && PlatformDetection.Architecture is ArchitectureKind.x86_64)
+                if (PlatformDetection.OS.GetKernel() is OSKind.Linux or OSKind.OSX && PlatformDetection.Architecture is ArchitectureKind.x86_64 or ArchitectureKind.Arm64)
                 {
                     // Linux on AMD64 doesn't actually use SystemV for managed calls.
                     abi = abi with
@@ -205,6 +205,35 @@ namespace MonoMod.Core.Platforms.Runtimes
             // https://github.com/mono/mono/blob/34dee0ea4e969d6d5b37cb842fc3b9f73f2dc2ae/mono/metadata/class-internals.h#L64
             var iflags = (ushort*)((long)handle.Value + 2);
             *iflags |= (ushort)MethodImplOptionsEx.NoInlining;
+        }
+        
+        public unsafe void DisableVisibilityCheck(MethodBase method)
+        {
+            var handle = GetMethodHandle(method);
+            // https://github.com/mono/mono/blob/34dee0ea4e969d6d5b37cb842fc3b9f73f2dc2ae/mono/metadata/class-internals.h#L82
+            // bitFields
+            // /* this is used by the inlining algorithm */
+            // unsigned int inline_info:1;
+            // unsigned int inline_failure:1;
+            // unsigned int wrapper_type:5;
+            // unsigned int string_ctor:1;
+            // unsigned int save_lmf:1;
+            // unsigned int dynamic:1; /* created & destroyed during runtime */
+            // unsigned int sre_method:1; /* created at runtime using Reflection.Emit */
+            // unsigned int is_generic:1; /* whenever this is a generic method definition */
+            // unsigned int is_inflated:1; /* whether we're a MonoMethodInflated */
+            // unsigned int skip_visibility:1; /* whenever to skip JIT visibility checks */
+            // unsigned int verification_success:1; /* whether this method has been verified successfully.*/
+            // unsigned int is_reabstracted:1; /* whenever this is a reabstraction of another interface */
+            var bitFields = (ushort*)((long)handle.Value +
+                    2 + // guint16 flags;  /* method flags */
+                    2 + // guint16 iflags; /* method implementation flags */
+                    4 + // guint32 token;
+                    IntPtr.Size + // MonoClass *klass; /* To what class does this method belong */
+                    IntPtr.Size + // MonoMethodSignature *signature;
+                    IntPtr.Size // const char *name;
+                );
+            *bitFields |= 0b1 << 13; // skip_visibility
         }
 
         private static readonly MethodInfo _DynamicMethod_CreateDynMethod =
@@ -354,6 +383,7 @@ namespace MonoMod.Core.Platforms.Runtimes
 
         public void Compile(MethodBase method)
         {
+            DisableVisibilityCheck(method);
             // GetFunctionPointer forces the method to be compiled on Mono
             _ = GetMethodHandle(method).GetFunctionPointer();
         }
