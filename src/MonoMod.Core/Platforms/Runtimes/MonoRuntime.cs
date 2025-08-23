@@ -323,7 +323,7 @@ namespace MonoMod.Core.Platforms.Runtimes
             typeof(DynamicMethod).GetMethod("CreateDynMethod", BindingFlags.NonPublic | BindingFlags.Instance)!;
 
         private static readonly FieldInfo _DynamicMethod_mhandle =
-            typeof(DynamicMethod).GetField("mhandle", BindingFlags.NonPublic | BindingFlags.Instance)!;
+            typeof(DynamicMethod).GetField("_mhandle", BindingFlags.NonPublic | BindingFlags.Instance)!;
 
         public RuntimeMethodHandle GetMethodHandle(MethodBase method)
         {
