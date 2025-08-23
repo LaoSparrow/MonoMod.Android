@@ -1,3 +1,20 @@
+# WIP: MonoMod for .NET for Android
+
+hooking on public static void functions with no arguments works, while other cases haven't been tested yet.
+
+
+Add the following lines to your `.csproj` file
+```xml
+</PropertyGroup>
+  <UseInterpreter>False</UseInterpreter>
+<PropertyGroup>
+```
+
+Put this line into your initialization
+```csharp
+System.Environment.SetEnvironmentVariable("MONOMOD_DMDType", "dm");
+```
+
 # MonoMod
 <!-- #links -->
 <a href="https://discord.gg/jm7GCZB"><img align="right" alt="MonoMod Discord" src="https://discordapp.com/api/guilds/295566538981769216/embed.png?style=banner2" /></a>
