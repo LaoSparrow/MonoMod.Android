@@ -83,6 +83,63 @@ namespace MonoMod.Core.Platforms.Runtimes
             // valuetype handling is implemented by add_valuetype 
             return ClassifyValueType(type, true);
         }
+        
+        private static TypeClassification LinuxArm64Classifier(Type type, bool isReturn)
+        {
+            // this is implemented by mini-arm64.c get_call_info
+
+            // first, always get the underlying type
+            if (type.IsEnum)
+                type = type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).First().FieldType;
+
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Empty:
+                    // size == 0???
+                    return TypeClassification.InRegister;
+                case TypeCode.Object:
+                case TypeCode.DBNull:
+                case TypeCode.String:
+                    // reference types
+                    return TypeClassification.InRegister;
+
+                case TypeCode.Boolean:
+                case TypeCode.Char:
+                case TypeCode.SByte:
+                case TypeCode.Byte:
+                case TypeCode.Int16:
+                case TypeCode.UInt16:
+                case TypeCode.Int32:
+                case TypeCode.UInt32:
+                case TypeCode.Int64:
+                case TypeCode.UInt64:
+                    // integer types
+                    return TypeClassification.InRegister;
+
+                case TypeCode.Single:
+                case TypeCode.Double:
+                    // floating point types (via SSE)
+                    return TypeClassification.InRegister;
+            }
+
+            // pointer types
+            if (type.IsPointer)
+                return TypeClassification.InRegister;
+            if (type.IsByRef)
+                return TypeClassification.InRegister;
+
+            // native integer types
+            if (type == typeof(IntPtr) || type == typeof(UIntPtr))
+                return TypeClassification.InRegister;
+
+            if (type == typeof(void))
+                return TypeClassification.InRegister;
+
+            Helpers.Assert(type.IsValueType);
+
+            // valuetype handling is implemented by add_valuetype 
+            return ClassifyValueType(type, true); // TODO: classifyArm64
+        }
 
         private static TypeClassification ClassifyValueType(Type type, bool isReturn)
         {
@@ -140,6 +197,25 @@ namespace MonoMod.Core.Platforms.Runtimes
                 _ => throw new InvalidOperationException()
             };
         }
+        
+        private static TypeClassification ClassifyValueTypeArm64(Type type, bool isReturn)
+        {
+            long AlignTo(long val, long align) => ((((long)val) + (long)((align) - 1)) & (~((long)(align - 1))));
+            // this is implemented by mini-arm64.c add_valuetype
+            var size = type.GetManagedSize();
+            var alignSize = (int)AlignTo(size, 8);
+            var nregs = alignSize / 8;
+            
+            // idfk what is `is_hfa`, lets skip that part first
+
+            if (alignSize > 16)
+            {
+                return TypeClassification.ByReference;
+            }
+            
+            // TODO: if (cinfo->gr + nregs > PARAM_REGS) {
+            return TypeClassification.InRegister;
+        }
 
         private static IEnumerable<FieldInfo> NestedValutypeFields(Type type)
         {
@@ -167,12 +243,20 @@ namespace MonoMod.Core.Platforms.Runtimes
             // see https://github.com/dotnet/runtime/blob/v6.0.5/src/mono/mono/mini/mini-amd64.c line 472, 847, 1735
             if (system.DefaultAbi is { } abi)
             {
-                if (PlatformDetection.OS.GetKernel() is OSKind.Linux or OSKind.OSX && PlatformDetection.Architecture is ArchitectureKind.x86_64 or ArchitectureKind.Arm64)
+                if (PlatformDetection.OS.GetKernel() is OSKind.Linux or OSKind.OSX && PlatformDetection.Architecture is ArchitectureKind.x86_64)
                 {
                     // Linux on AMD64 doesn't actually use SystemV for managed calls.
                     abi = abi with
                     {
                         Classifier = LinuxAmd64Classifier
+                    };
+                }
+                if (PlatformDetection.OS.GetKernel() is OSKind.Linux or OSKind.OSX && PlatformDetection.Architecture is ArchitectureKind.Arm64)
+                {
+                    // Linux on Arm64 doesn't actually use SystemV for managed calls.
+                    abi = abi with
+                    {
+                        Classifier = LinuxArm64Classifier
                     };
                 }
                 // notably, in Mono, the generic context pointer is not an argument in the normal calling convention, but an argument elsewhere (r10 on x64)
