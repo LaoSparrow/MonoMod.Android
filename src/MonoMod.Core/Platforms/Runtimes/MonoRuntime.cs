@@ -84,6 +84,63 @@ namespace MonoMod.Core.Platforms.Runtimes
             return ClassifyValueType(type, true);
         }
 
+        private static TypeClassification LinuxArm64Classifier(Type type, bool isReturn)
+        {
+            // this is implemented by mini-amd64.c get_call_info
+
+            // first, always get the underlying type
+            if (type.IsEnum)
+                type = type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public).First().FieldType;
+
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Empty:
+                    // size == 0???
+                    return TypeClassification.InRegister;
+                case TypeCode.Object:
+                case TypeCode.DBNull:
+                case TypeCode.String:
+                    // reference types
+                    return TypeClassification.InRegister;
+
+                case TypeCode.Boolean:
+                case TypeCode.Char:
+                case TypeCode.SByte:
+                case TypeCode.Byte:
+                case TypeCode.Int16:
+                case TypeCode.UInt16:
+                case TypeCode.Int32:
+                case TypeCode.UInt32:
+                case TypeCode.Int64:
+                case TypeCode.UInt64:
+                    // integer types
+                    return TypeClassification.InRegister;
+
+                case TypeCode.Single:
+                case TypeCode.Double:
+                    // floating point types (via SSE)
+                    return TypeClassification.InRegister;
+            }
+
+            // pointer types
+            if (type.IsPointer)
+                return TypeClassification.InRegister;
+            if (type.IsByRef)
+                return TypeClassification.InRegister;
+
+            // native integer types
+            if (type == typeof(IntPtr) || type == typeof(UIntPtr))
+                return TypeClassification.InRegister;
+
+            if (type == typeof(void))
+                return TypeClassification.InRegister;
+
+            Helpers.Assert(type.IsValueType);
+
+            // valuetype handling is implemented by add_valuetype
+            return ClassifyValueType(type, true); // TODO: classifyArm64
+        }
+
         private static TypeClassification ClassifyValueType(Type type, bool isReturn)
         {
             // this is implemented by mini-amd64.c add_valuetype
@@ -141,6 +198,25 @@ namespace MonoMod.Core.Platforms.Runtimes
             };
         }
 
+        private static TypeClassification ClassifyValueTypeArm64(Type type, bool isReturn)
+        {
+            long AlignTo(long val, long align) => ((((long)val) + (long)((align) - 1)) & (~((long)(align - 1))));
+            // this is implemented by mini-arm64.c add_valuetype
+            var size = type.GetManagedSize();
+            var alignSize = (int)AlignTo(size, 8);
+            var nregs = alignSize / 8;
+
+            // idfk what is `is_hfa`, lets skip that part first
+
+            if (alignSize > 16)
+            {
+                return TypeClassification.ByReference;
+            }
+
+            // TODO: if (cinfo->gr + nregs > PARAM_REGS) {
+            return TypeClassification.InRegister;
+        }
+
         private static IEnumerable<FieldInfo> NestedValutypeFields(Type type)
         {
             var fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
@@ -175,6 +251,13 @@ namespace MonoMod.Core.Platforms.Runtimes
                         Classifier = LinuxAmd64Classifier
                     };
                 }
+                if (PlatformDetection.OS.GetKernel() is OSKind.Linux or OSKind.OSX && PlatformDetection.Architecture is ArchitectureKind.Arm64)
+                {
+                    abi = abi with
+                    {
+                        Classifier = LinuxArm64Classifier
+                    };
+                }
                 // notably, in Mono, the generic context pointer is not an argument in the normal calling convention, but an argument elsewhere (r10 on x64)
                 if (PlatformDetection.OS is OSKind.Windows or OSKind.Wine && PlatformDetection.Architecture is ArchitectureKind.x86_64 or ArchitectureKind.x86)
                 {
@@ -205,6 +288,35 @@ namespace MonoMod.Core.Platforms.Runtimes
             // https://github.com/mono/mono/blob/34dee0ea4e969d6d5b37cb842fc3b9f73f2dc2ae/mono/metadata/class-internals.h#L64
             var iflags = (ushort*)((long)handle.Value + 2);
             *iflags |= (ushort)MethodImplOptionsEx.NoInlining;
+        }
+
+        public unsafe void DisableVisibilityCheck(MethodBase method)
+        {
+            var handle = GetMethodHandle(method);
+            // https://github.com/mono/mono/blob/34dee0ea4e969d6d5b37cb842fc3b9f73f2dc2ae/mono/metadata/class-internals.h#L82
+            // bitFields
+            // /* this is used by the inlining algorithm */
+            // unsigned int inline_info:1;
+            // unsigned int inline_failure:1;
+            // unsigned int wrapper_type:5;
+            // unsigned int string_ctor:1;
+            // unsigned int save_lmf:1;
+            // unsigned int dynamic:1; /* created & destroyed during runtime */
+            // unsigned int sre_method:1; /* created at runtime using Reflection.Emit */
+            // unsigned int is_generic:1; /* whenever this is a generic method definition */
+            // unsigned int is_inflated:1; /* whether we're a MonoMethodInflated */
+            // unsigned int skip_visibility:1; /* whenever to skip JIT visibility checks */
+            // unsigned int verification_success:1; /* whether this method has been verified successfully.*/
+            // unsigned int is_reabstracted:1; /* whenever this is a reabstraction of another interface */
+            var bitFields = (ushort*)((long)handle.Value +
+                                      2 + // guint16 flags;  /* method flags */
+                                      2 + // guint16 iflags; /* method implementation flags */
+                                      4 + // guint32 token;
+                                      IntPtr.Size + // MonoClass *klass; /* To what class does this method belong */
+                                      IntPtr.Size + // MonoMethodSignature *signature;
+                                      IntPtr.Size // const char *name;
+                );
+            *bitFields |= 0b1 << 13; // skip_visibility
         }
 
         private static readonly MethodInfo _DynamicMethod_CreateDynMethod =
@@ -354,6 +466,7 @@ namespace MonoMod.Core.Platforms.Runtimes
 
         public void Compile(MethodBase method)
         {
+            DisableVisibilityCheck(method);
             // GetFunctionPointer forces the method to be compiled on Mono
             _ = GetMethodHandle(method).GetFunctionPointer();
         }
