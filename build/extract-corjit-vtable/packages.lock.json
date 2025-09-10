@@ -1,7 +1,7 @@
 {
   "version": 1,
   "dependencies": {
-    "net9.0": {
+    "net10.0": {
       "Chell": {
         "type": "Direct",
         "requested": "[1.0.0, )",
@@ -101,7 +101,7 @@
         "contentHash": "irMYm3vhVgRsYvHTU5b2gsT2CwT/SMM6LZFzuJjpIvT5Z4CshxNsaoBC1X/LltwuR3Opp8d6jOS/60WwOb7Q2Q=="
       }
     },
-    "net9.0/linux-x64": {
+    "net10.0/linux-x64": {
       "libclang": {
         "type": "Transitive",
         "resolved": "18.1.3.2",
@@ -129,7 +129,7 @@
         "contentHash": "btwuosmQpqgdWZsttfGlT1bd4X1/QMeXUfvjEADdyNV529E0/UMwsKBaVbECAF/APZ5k1dIBImfNUlsT6+0Fmg=="
       }
     },
-    "net9.0/win-x64": {
+    "net10.0/win-x64": {
       "libclang": {
         "type": "Transitive",
         "resolved": "18.1.3.2",
