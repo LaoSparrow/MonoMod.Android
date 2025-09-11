@@ -115,7 +115,7 @@ internal sealed record Dotnet : Enableable
         },
         new()
         {
-            Name = ".NET 10.0 RC",
+            Name = ".NET 10.0",
             Sdk = "10.0",
             TFM = "net10.0",
             HasPGO = true,
