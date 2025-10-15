@@ -178,7 +178,6 @@
                 // class ICorJitInfo
                 // A0: void allocMem(AllocMemArgs *)
                 public const int AllocMemIndex = 0xA0;
-
                 // A1: void reserveUnwindInfo(bool, bool, uint32_t)
                 // A2: void allocUnwindInfo(uint8_t *, uint8_t *, uint32_t, uint32_t, uint32_t, uint8_t *, CorJitFuncKind)
                 // A3: void * allocGCInfo(size_t)
@@ -194,6 +193,7 @@
                 // AD: uint16_t getRelocTypeHint(void *)
                 // AE: uint32_t getExpectedTargetArchitecture()
                 // AF: uint32_t getJitFlags(CORJIT_FLAGS *, uint32_t)
+
                 public const int TotalVtableCount = 0xB0;
             }
         }

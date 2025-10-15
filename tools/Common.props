@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
-
-  <!--https://github.com/dotnet/reproducible-builds/issues/61-->
-  <PropertyGroup>
-    <AllowMissingPrunePackageData>true</AllowMissingPrunePackageData>
-  </PropertyGroup>
-  <Import Project="Sdk.props" Sdk="DotNet.ReproducibleBuilds.Isolated" Version="1.2.25" />
+  
+  <Import Project="Sdk.props" Sdk="DotNet.ReproducibleBuilds.Isolated" Version="1.2.39" />
 
   <ItemGroup>
     <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.2.25" PrivateAssets="All"/>
