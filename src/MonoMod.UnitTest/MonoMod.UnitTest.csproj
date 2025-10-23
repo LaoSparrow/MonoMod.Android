@@ -70,7 +70,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="System.IO.FileSystem" Version="4.*" />
     
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.3" />
     <PackageReference Include="Microsoft.TestPlatform.TestHost" Version="17.3.3" />
