@@ -116,16 +116,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -266,7 +256,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -275,7 +265,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -283,9 +273,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -295,8 +285,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -411,16 +401,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -474,11 +454,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
-      },
-      "Microsoft.NETCore.Targets": {
-        "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -540,7 +515,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -549,7 +524,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -557,9 +532,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -569,8 +544,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -685,16 +660,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -748,11 +713,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
-      },
-      "Microsoft.NETCore.Targets": {
-        "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -814,7 +774,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -823,7 +783,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -831,9 +791,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -843,8 +803,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -964,12 +924,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA=="
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -1079,7 +1033,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -1088,7 +1042,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -1096,9 +1050,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -1108,8 +1062,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -1224,16 +1178,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -1287,11 +1231,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
-      },
-      "Microsoft.NETCore.Targets": {
-        "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -1353,7 +1292,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -1362,7 +1301,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -1370,9 +1309,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -1382,8 +1321,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -1498,16 +1437,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -1561,11 +1490,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
-      },
-      "Microsoft.NETCore.Targets": {
-        "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -1627,7 +1551,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -1636,7 +1560,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -1644,9 +1568,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -1656,8 +1580,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -1772,16 +1696,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -1835,11 +1749,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
-      },
-      "Microsoft.NETCore.Targets": {
-        "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -1901,7 +1810,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -1910,7 +1819,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -1918,9 +1827,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -1930,8 +1839,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -2046,16 +1955,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -2109,11 +2008,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
-      },
-      "Microsoft.NETCore.Targets": {
-        "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -2175,7 +2069,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -2184,7 +2078,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -2192,9 +2086,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -2204,8 +2098,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -2320,16 +2214,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -2383,11 +2267,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
-      },
-      "Microsoft.NETCore.Targets": {
-        "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -2449,7 +2328,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -2458,7 +2337,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -2466,9 +2345,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -2478,8 +2357,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
@@ -2594,16 +2473,6 @@
         "resolved": "1.3.1",
         "contentHash": "Mk4ZVDfAORTjvckQprCSehi1XgOAAlk5ez06Va/acRYEloN9t6d6zpzJRn5MEq7+RnagyFIq9r+kbWzLGd+6QA=="
       },
-      "System.IO.FileSystem": {
-        "type": "Direct",
-        "requested": "[4.*, )",
-        "resolved": "4.3.0",
-        "contentHash": "3wEMARTnuio+ulnvi+hkRNROYwa1kylvYahhcLk4HSoVdl+xxTFVeVlYOfLwrDPImGls0mDqbMhrza8qnWPTdA==",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
-        }
-      },
       "xunit": {
         "type": "Direct",
         "requested": "[2.4.2, )",
@@ -2657,11 +2526,6 @@
         "type": "Transitive",
         "resolved": "1.1.0",
         "contentHash": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A=="
-      },
-      "Microsoft.NETCore.Targets": {
-        "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -2723,7 +2587,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.patcher": {
@@ -2732,7 +2596,7 @@
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour": {
@@ -2740,9 +2604,9 @@
         "dependencies": {
           "Mono.Cecil": "[0.11.6, )",
           "MonoMod.Backports": "[1.1.2, )",
-          "MonoMod.Core": "[1.3.1-alpha.dev, )",
+          "MonoMod.Core": "[1.3.2-alpha.dev, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.runtimedetour.hookgen": {
@@ -2752,8 +2616,8 @@
           "MonoMod.Backports": "[1.1.2, )",
           "MonoMod.ILHelpers": "[1.1.0, )",
           "MonoMod.Patcher": "[0.0.0-alpha.dev, )",
-          "MonoMod.RuntimeDetour": "[25.3.1-alpha.dev, )",
-          "MonoMod.Utils": "[25.0.9-alpha.dev, )"
+          "MonoMod.RuntimeDetour": "[25.3.2-alpha.dev, )",
+          "MonoMod.Utils": "[25.0.10-alpha.dev, )"
         }
       },
       "monomod.utils": {
