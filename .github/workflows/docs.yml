@@ -7,12 +7,6 @@ on:
     branches:
     - reorganize
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  actions: read
-  pages: write
-  id-token: write
-
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
@@ -34,10 +28,7 @@ env:
   RoslynVersion: 4.14.0
 
 jobs:
-  publish-docs:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-docs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure git
@@ -89,7 +80,19 @@ jobs:
         # Upload entire repository
         path: 'docfx/_site'
     
+  publish-docs:
+    needs: [build-docs]
+    if: ${{ github.event_name != 'pull_request' }}
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
     - name: Deploy to GitHub Pages
-      if: ${{ github.event_name != 'pull_request' }}
       id: deployment
       uses: actions/deploy-pages@v4
