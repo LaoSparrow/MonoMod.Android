@@ -1,7 +1,14 @@
-﻿namespace MonoMod.Core.Interop
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace MonoMod.Core.Interop
 {
     internal static unsafe partial class CoreCLR
     {
+        [SuppressMessage("Performance", "CA1812: Avoid uninstantiated internal classes",
+            Justification = "It must be non-static to be able to inherit others, as it does. This allows the Core*Runtime types " +
+            "to each reference exactly the version they represent, and the compiler automatically resolves the correct one without " +
+            "needing duplicates.")]
+        [SuppressMessage("Performance", "CA1852", Justification = "This type will be derived for .NET 11.")]
         public class V100 : V90
         {
             public new static class ICorJitInfoVtable

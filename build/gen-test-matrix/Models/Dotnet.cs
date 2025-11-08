@@ -36,7 +36,7 @@ internal sealed record Dotnet : Enableable
         {
             Name = ".NET Framework 4.x",
             Id = "fx",
-            TFM = "net462",
+            TFM = "net472",
             IsFramework = true,
             RIDs = ["win-x86", "win-x64", "win-arm64"]
         },

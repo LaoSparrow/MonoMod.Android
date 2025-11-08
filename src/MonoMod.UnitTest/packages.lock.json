@@ -22,15 +22,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -319,15 +319,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -578,15 +578,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -816,7 +816,7 @@
         }
       }
     },
-    ".NETFramework,Version=v4.6.2": {
+    ".NETFramework,Version=v4.7.2": {
       "DotNet.ReproducibleBuilds": {
         "type": "Direct",
         "requested": "[1.2.39, )",
@@ -837,15 +837,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -862,7 +862,7 @@
         "resolved": "1.0.3",
         "contentHash": "vUc9Npcs14QsyOD01tnv/m8sQUnGTGOw1BCmKcv77LBJY7OxhJ+zJF7UD/sCL3lYNFuqmQEVlkfS4Quif6FyYg==",
         "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net462": "1.0.3"
+          "Microsoft.NETFramework.ReferenceAssemblies.net472": "1.0.3"
         }
       },
       "Microsoft.SourceLink.GitHub": {
@@ -959,9 +959,9 @@
       },
       "xunit.runner.visualstudio": {
         "type": "Direct",
-        "requested": "[2.*, 2.4.3]",
-        "resolved": "2.4.3",
-        "contentHash": "kZZSmOmKA8OBlAJaquPXnJJLM9RwQ27H7BMVqfMLUcTi9xHinWGJiWksa3D4NEtz0wZ/nxd2mogObvBgJKCRhQ=="
+        "requested": "[2.4.2, )",
+        "resolved": "2.4.2",
+        "contentHash": "Trt9multph2KE3U0p9oBt0k4Fq6lUv4btUcONaQEeuFnMCak2k/b7PAArbLtMFW7HO1jxlBHUgIPKEqci3Y1dg=="
       },
       "Microsoft.Build.Tasks.Git": {
         "type": "Transitive",
@@ -973,10 +973,10 @@
         "resolved": "17.3.3",
         "contentHash": "b8TXlHH/HcGoPQ8L5o0dYmbZz32gwGvevAOzYKccNljaOHX5JivPqUt2GJKtIljahN9uwLPdjabw49K1LYXyTA=="
       },
-      "Microsoft.NETFramework.ReferenceAssemblies.net462": {
+      "Microsoft.NETFramework.ReferenceAssemblies.net472": {
         "type": "Transitive",
         "resolved": "1.0.3",
-        "contentHash": "IzAV30z22ESCeQfxP29oVf4qEo8fBGXLXSU6oacv/9Iqe6PzgHDKCaWfwMBak7bSJQM0F5boXWoZS+kChztRIQ=="
+        "contentHash": "0E7evZXHXaDYYiLRfpyXvCh+yzM2rNTyuZDI+ZO7UUqSc6GfjePiXTdqJGtgIKUwdI81tzQKmaWprnUiPj9hAw=="
       },
       "Microsoft.SourceLink.Common": {
         "type": "Transitive",
@@ -1096,15 +1096,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -1355,15 +1355,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -1614,15 +1614,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -1873,15 +1873,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -2132,15 +2132,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -2391,15 +2391,15 @@
       },
       "Microsoft.CodeAnalysis.CSharp.CodeStyle": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "5S+LHLhm0am4MWQQMN0O3VyKA/St5JCqH1yv+1YGZl2klIJlLlmNA/KTLCVJSC1kZPIKR1MFF/3g9FqsyzIyCQ=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "72iZ5zsjAlMQ4kxxCu2198/uO+cKm1Js4xj5keDv4cqbUzLUojRJ4JhGNiq/nnIIgAI99DfVoNKT491/NPvGVw=="
       },
       "Microsoft.Net.Compilers.Toolset": {
         "type": "Direct",
-        "requested": "[4.12.0, )",
-        "resolved": "4.12.0",
-        "contentHash": "xXDdIgDfcbMr+2bLzVJHg+/oCHwcYs808TlooX0M9+BVCeHITaROsjdbWSJNdyzeMe/K8iB2NeHmaAOUcqkKWw=="
+        "requested": "[5.0.0-2.final, )",
+        "resolved": "5.0.0-2.final",
+        "contentHash": "htd63vZnxeGtNlqQnoLx71v1EitsgZqc2WUAIBO589IO5of5XTREPQuSTv1i5qpf56CaCJ74O+YrF2i86gq+XA=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
