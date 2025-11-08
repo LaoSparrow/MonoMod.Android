@@ -3,6 +3,9 @@ on:
   push:
     branches:
     - reorganize
+  pull_request:
+    branches:
+    - reorganize
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -76,7 +79,7 @@ jobs:
       uses: actions/upload-artifact@v4
       if: ${{ always() }}
       with:
-        name: binlogs
+        name: docs-binlogs
         path: '*.binlog'
         retention-days: 7
         
@@ -87,5 +90,6 @@ jobs:
         path: 'docfx/_site'
     
     - name: Deploy to GitHub Pages
+      if: ${{ github.event_name != 'pull_request' }}
       id: deployment
       uses: actions/deploy-pages@v4
