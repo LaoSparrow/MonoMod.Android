@@ -1,8 +1,8 @@
-﻿using MonoMod.Backports;
-using MonoMod.Core.Platforms;
+﻿using MonoMod.Core.Platforms;
 using MonoMod.Utils;
 using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace MonoMod.Core
@@ -89,17 +89,24 @@ namespace MonoMod.Core
     [CLSCompliant(true)]
     public static class DetourFactory
     {
+        private static object currentLock = new();
+
+        private static IDetourFactory? lazyDefault;
+
         /// <summary>
         /// Gets the default <see cref="IDetourFactory"/>. This is always the <see cref="PlatformTriple"/>-based <see cref="IDetourFactory"/>.
         /// </summary>
-        public static IDetourFactory Default { get; } = new PlatformTripleDetourFactory(PlatformTriple.Current);
+        public static unsafe IDetourFactory Default => Helpers.GetOrInitWithLock(ref lazyDefault, currentLock, &CreateDefault);
+        [SuppressMessage("Performance", "CA1859:Use concrete types when possible for improved performance",
+            Justification = "Must have this exact return type.")]
+        private static IDetourFactory CreateDefault() => new PlatformTripleDetourFactory(PlatformTriple.Current);
 
-        private static object currentLock = new();
-
+        private static IDetourFactory? lazyCurrent;
         /// <summary>
         /// Gets the current <see cref="IDetourFactory"/>.
         /// </summary>
-        public static IDetourFactory Current { get; private set; } = Default;
+        public static unsafe IDetourFactory Current => Helpers.GetOrInitWithLock(ref lazyCurrent, currentLock, &CreateCurrent);
+        private static IDetourFactory CreateCurrent() => Default;
 
         /// <summary>
         /// Sets the current <see cref="IDetourFactory"/>.
@@ -112,7 +119,7 @@ namespace MonoMod.Core
 
             lock (currentLock)
             {
-                Current = creator(Current);
+                lazyCurrent = creator(Current);
             }
         }
 

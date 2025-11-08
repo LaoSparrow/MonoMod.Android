@@ -91,6 +91,10 @@ jobs:
         architecture: ${{ fromJSON(inputs.matrix).arch }}
         global-json: global.json
 
+    - name: Ensure dumps path exists
+      shell: pwsh
+      run: New-Item -Type Directory -Force $env:DUMPS_PATH
+
     - name: Restore packages
       if: ${{ fromJSON(inputs.matrix).dotnet.needsRestore }}
       run: dotnet restore -noAutoRsp
