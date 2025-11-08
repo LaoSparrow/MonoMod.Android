@@ -160,7 +160,7 @@ jobs:
 
   bump-ver:
     name: Bump versions
-    needs: [upload-github, upload-nuget]
+    needs: [setup, upload-github, upload-nuget]
     if: ${{ !failure() && !cancelled() }}
     runs-on: ubuntu-latest
 
@@ -221,7 +221,10 @@ jobs:
       if: '!inputs.prerelease'
       uses: EndBug/add-and-commit@v9
       with:
-        message: "[BOT]: Bump version after ${{ needs.setup.outputs.ver }}"
+        message: |
+          [BOT]: Bump version after ${{ needs.setup.outputs.ver }} release
+
+          [skip-ci]
         default_author: github_actions
         push: ${{ !inputs.dryrun && 'origin --force --set-upstream' || 'false' }}
         pathspec_error_handling: exitAtEnd
