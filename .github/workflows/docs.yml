@@ -55,7 +55,7 @@ jobs:
         restore-keys: ${{ runner.os }}-nuget-setup-v2-${{ hashFiles('build/gen-test-matrix/packages.lock.json') }}
         
     - name: Restore
-      run: dotnet restore -bl:restore.binlog -noAutoRsp -p:RoslynVersion=${{ env.RoslynVersion }}
+      run: dotnet restore -bl:restore.binlog -noAutoRsp -p:RestoreLockedMode=false -p:RoslynVersion=${{ env.RoslynVersion }}
 
     - name: Restore .NET tools
       run: dotnet tool restore
