@@ -407,6 +407,7 @@ namespace MonoMod.Core.Platforms.Systems
 
         private unsafe PosixExceptionHelper CreateNativeExceptionHelper()
         {
+            return null!; // TODO: NativeExceptionHelper
             Helpers.Assert(arch is not null);
 
             var soname = arch.Target switch
