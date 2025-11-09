@@ -1,14 +1,9 @@
 name: Docs
 on:
   push:
+  pull_request:
     branches:
     - reorganize
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  actions: read
-  pages: write
-  id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -25,12 +20,13 @@ env:
   DOTNET_NOLOGO: true
   NUGET_PACKAGES: ${{github.workspace}}/artifacts/pkg
   RestoreLockedMode: true
+  
+  # We have to force the Roslyn version to be 4.14, because docfx ships that version, and if we target newer for the DocFX build,
+  # our source generators won't load. This can be extracted from Directory.Packages.props in the docfx repo.
+  RoslynVersion: 4.14.0
 
 jobs:
-  publish-docs:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-docs:
     runs-on: ubuntu-latest
     steps:
     - name: Configure git
@@ -56,17 +52,14 @@ jobs:
         key: ${{ runner.os }}-nuget-v2-${{ hashFiles('**/packages.lock.json') }}
         restore-keys: ${{ runner.os }}-nuget-setup-v2-${{ hashFiles('build/gen-test-matrix/packages.lock.json') }}
         
-    # We have to force the Roslyn version to be 4.10, because docfx ships that version, and if we target newer for the DocFX build,
-    # our source generators won't load,
-
     - name: Restore
-      run: dotnet restore -bl:restore.binlog -noAutoRsp
+      run: dotnet restore -bl:restore.binlog -noAutoRsp -p:RestoreLockedMode=false -p:RoslynVersion=${{ env.RoslynVersion }}
 
     - name: Restore .NET tools
       run: dotnet tool restore
 
     - name: Build all projects # don't run any analyzers to speed up this build
-      run: dotnet build --no-restore -c Release -noAutoRsp -bl:build.binlog -p:RunAnalyzers=false
+      run: dotnet build --no-restore -c Release -noAutoRsp -bl:build.binlog -p:RunAnalyzers=false -p:RoslynVersion=${{ env.RoslynVersion }}
 
     - name: Build DocFX project
       run: dotnet docfx docfx/docfx.json
@@ -75,7 +68,7 @@ jobs:
       uses: actions/upload-artifact@v4
       if: ${{ always() }}
       with:
-        name: binlogs
+        name: docs-binlogs
         path: '*.binlog'
         retention-days: 7
         
@@ -85,6 +78,19 @@ jobs:
         # Upload entire repository
         path: 'docfx/_site'
     
+  publish-docs:
+    needs: [build-docs]
+    if: ${{ github.event_name == 'push' && github.ref_name == 'reorganize' }}
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
